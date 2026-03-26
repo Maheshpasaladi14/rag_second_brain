@@ -24,7 +24,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 
 
-dotenv.config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 const app = express();
 app.use(cors());
