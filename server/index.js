@@ -102,16 +102,32 @@ app.get('/health', (req, res) => {
 // });
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log('✅ MongoDB connected');
-    app.listen(process.env.PORT || 5000, () => {
-      console.log(`✅ Server running on port ${process.env.PORT || 5000}`);
+// mongoose.connect(process.env.MONGODB_URI)
+//   .then(() => {
+//     console.log('✅ MongoDB connected');
+//     app.listen(process.env.PORT || 5000, () => {
+//       console.log(`✅ Server running on port ${process.env.PORT || 5000}`);
+//     });
+//   })
+//   .catch(err => {
+//     console.error('❌ MongoDB connection failed:', err.message);
+//     process.exit(1);
+//   });
+
+  // At the bottom of index.js
+if (process.env.NODE_ENV !== 'test') {
+  mongoose.connect(process.env.MONGODB_URI)
+    .then(() => {
+      console.log('✅ MongoDB connected');
+      app.listen(process.env.PORT || 5000, () => {
+        console.log(`✅ Server running on port ${process.env.PORT || 5000}`);
+      });
+    })
+    .catch(err => {
+      console.error('❌ MongoDB connection failed:', err.message);
+      process.exit(1);
     });
-  })
-  .catch(err => {
-    console.error('❌ MongoDB connection failed:', err.message);
-    process.exit(1);
-  });
+}
+
 
 module.exports = app;
