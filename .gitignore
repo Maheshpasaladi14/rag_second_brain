@@ -1,0 +1,43 @@
+# ─── Node ───────────────────────────
+node_modules/
+server/node_modules/
+client/node_modules/
+
+# ─── Environment Variables ──────────
+.env
+server/.env
+client/.env
+ai/.env
+
+# ─── Python ─────────────────────────
+ai/venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# ─── Uploads (local temp files) ─────
+server/uploads/
+
+# ─── Frontend Build ──────────────────
+client/dist/
+client/.vercel/
+
+# ─── OS Files ────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── IDE ─────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ─── Logs ────────────────────────────
+*.log
+npm-debug.log*
+logs/
