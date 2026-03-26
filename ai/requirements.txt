@@ -1,0 +1,7 @@
+
+PyMuPDF
+sentence-transformers
+pymongo
+python-dotenv
+requests
+flask
