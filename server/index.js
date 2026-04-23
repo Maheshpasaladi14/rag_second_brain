@@ -23,6 +23,8 @@ app.get('/health', (req, res) => {
 
 // Connect to MongoDB and start server
 if (process.env.NODE_ENV !== 'test') {
+  console.log('ENV CHECK - MONGODB_URI exists:', !!process.env.MONGODB_URI);
+console.log('ENV CHECK - NODE_ENV:', process.env.NODE_ENV);
   mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
       console.log('✅ MongoDB connected');
@@ -33,6 +35,7 @@ if (process.env.NODE_ENV !== 'test') {
     .catch(err => {
       console.error('❌ MongoDB connection failed:', err.message);
       process.exit(1);
+      //testing for the new branch
     });
 }
 
